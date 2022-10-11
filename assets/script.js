@@ -97,6 +97,37 @@
    
 
   })();
+
+  // UI Module
+var UIController = (function() {
+
+  //object to hold references to html selectors
+  var DOMElements = {
+      selectGenre: '#select_genre',
+      selectPlaylist: '#select_playlist',
+      buttonSubmit: '#btn_submit',
+      divSongDetail: '#song-detail',
+      hfToken: '#hidden_token',
+      divSonglist: '.song-list'
+  }
+
+  //public methods
+  return {
+
+      //method to get input fields
+      inputField() {
+          return {
+              genre: document.querySelector(DOMElements.selectGenre),
+              playlist: document.querySelector(DOMElements.selectPlaylist),
+              tracks: document.querySelector(DOMElements.divSonglist),
+              submit: document.querySelector(DOMElements.buttonSubmit),
+              songDetail: document.querySelector(DOMElements.divSongDetail)
+          }
+      },
+   
+    }
+  })
+
 // var app=" https://api.spotify.com/v1/recommendations"
 
 // fetch('https://api.spotify.com/v1/me/top/artists', function(req, res) {
@@ -115,7 +146,7 @@
 //     };
 
 //   request.post(authOptions, function(error, response, body) {
-//     console.log('request')
+//     console.log('request') 
 //     if (!error && response.statusCode === 200) {
 
 //         var access_token = body.access_token,
@@ -133,4 +164,4 @@
 //         });
 //      }
 //   });
-// })
+// 
