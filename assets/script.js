@@ -74,7 +74,9 @@
 
       var data = await result.json();
       return data;
+
     }
+    console.log(_getTrack)
     return{
       getToken(){
         return _getToken();
