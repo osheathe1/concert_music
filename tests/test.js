@@ -269,17 +269,5 @@ const APPController = (function(UICtrl, APICtrl) {
 
 })(UIController, APIController);
 
-function cards(data) {
-    eventsection.innerHTML = ""
-    for (var i = 0; i < 4; i++) {
-        var randomindex = Math.floor(Math.random() * data._embedded.events.length)
-        var randomevents = data._embedded.events[randomindex]
-        console.log(randomevents)
-        eventsection.innerHTML += `<div class="card col s3">
-<div class="card-image waves-effect waves-block waves-light">
-  <img class="activator" src="${randomevents.images[0].url}">
-</div>`
-
-}}
 // will need to call a method to load the genres on page load
 APPController.init();
