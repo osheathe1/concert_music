@@ -127,7 +127,7 @@ const UIController = (function() {
 
       // need method to create a track list group item 
       createTrack(id, name) {
-          const html = `<a href="#" class="list-group-item list-group-item-action list-group-item-light" id="${id}">${name}</a>`;
+          const html = `<li><a href="#" class="list-group-item list-group-item-action list-group-item-light" id="${id}">${name}</a></li>`;
           document.querySelector(DOMElements.divSonglist).insertAdjacentHTML('beforeend', html);
       },
 
@@ -139,16 +139,24 @@ const UIController = (function() {
           detailDiv.innerHTML = '';
 
           const html = 
-          `
-          <div class="row col-sm-12 px-0">
-              <img src="${img}" alt="">        
+          `    <div class="col s12 m8 offset-m2 l6 offset-l3">
+          <div class="card-panel deep-purple darken-1">
+            <div class="row valign-wrapper">
+              <div class="col s2">
+              <img src="${img}" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+              </div>
+              <div class="col s10">
+                <span >
+                <label class="white-text" for="Genre" class="form-label col-sm-12">${title}:</label>
+                <label class="white-text" for="artist" class="form-label col-sm-12">By ${artist}:</label>
+                </span>
+              </div>
+            </div>
           </div>
-          <div class="row col-sm-12 px-0">
-              <label for="Genre" class="form-label col-sm-12">${title}:</label>
-          </div>
-          <div class="row col-sm-12 px-0">
-              <label for="artist" class="form-label col-sm-12">By ${artist}:</label>
-          </div> 
+        </div>
+              
+          
+         
           `;
 
           detailDiv.insertAdjacentHTML('beforeend', html)
@@ -261,17 +269,5 @@ const APPController = (function(UICtrl, APICtrl) {
 
 })(UIController, APIController);
 
-function cards(data) {
-    eventsection.innerHTML = ""
-    for (var i = 0; i < 4; i++) {
-        var randomindex = Math.floor(Math.random() * data._embedded.events.length)
-        var randomevents = data._embedded.events[randomindex]
-        console.log(randomevents)
-        eventsection.innerHTML += `<div class="card col s3">
-<div class="card-image waves-effect waves-block waves-light">
-  <img class="activator" src="${randomevents.images[0].url}">
-</div>`
-
-}}
 // will need to call a method to load the genres on page load
 APPController.init();
