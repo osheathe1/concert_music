@@ -1,4 +1,4 @@
-var requestUrl = 'https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=sfc1Y0bX3Zgic2mQV35brq7ZrgP0muej';
+var requestUrl = 'https://app.ticketmaster.com/discovery/v2/events.json?classificationName=music&dmaId=222&apikey=sfc1Y0bX3Zgic2mQV35brq7ZrgP0muej';
 
 var responseText = document.getElementById('response-text');
 var eventsection = document.getElementById('allevents')
@@ -21,7 +21,7 @@ getApi(requestUrl);
 
 function cards(data) {
     eventsection.innerHTML = ""
-    for (var i = 0; i < 4; i++) {
+    for (var i = 0; i < 8; i++) {
         var randomindex = Math.floor(Math.random() * data._embedded.events.length)
         var randomevents = data._embedded.events[randomindex]
         console.log(randomevents)
