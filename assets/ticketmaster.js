@@ -21,11 +21,11 @@ getApi(requestUrl);
 
 function cards(data) {
     eventsection.innerHTML = ""
-    for (var i = 0; i < 8; i++) {
+    for (var i = 0; i < 4; i++) {
         var randomindex = Math.floor(Math.random() * data._embedded.events.length)
         var randomevents = data._embedded.events[randomindex]
         console.log(randomevents)
-        eventsection.innerHTML += `<div class="card col s3">
+        eventsection.innerHTML += `<div class="card col  m3">
 <div class="card-image waves-effect waves-block waves-light">
   <img class="activator" src="${randomevents.images[0].url}">
 </div>
@@ -41,6 +41,8 @@ function cards(data) {
 </div>`
     }
 }
+
+
 
 function doMath(num1, num2) {
     if (num1 < 10) {
