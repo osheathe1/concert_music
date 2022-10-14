@@ -21,7 +21,7 @@ getApi(requestUrl);
 
 function cards(data) {
     eventsection.innerHTML = ""
-    for (var i = 0; i < 4; i++) {
+    for (var i = 0; i < 8; i++) {
         var randomindex = Math.floor(Math.random() * data._embedded.events.length)
         var randomevents = data._embedded.events[randomindex]
         console.log(randomevents)
